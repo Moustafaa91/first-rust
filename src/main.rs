@@ -1,12 +1,23 @@
-mod guess_game;
-mod types_info;
-
 #[allow(dead_code)]
-fn hello_world() {
-    println!("Hello, world!");
-}
+mod guess_game;
+#[allow(dead_code)]
+mod types_info;
+#[allow(dead_code)]
+mod data_structures;
+use crate::data_structures::Queue;
 
 fn main() {
     //guess_game::guess_game();
-    types_info::print_types_info();
+    //types_info::print_types_info();
+    let mut queue = Queue::new();
+    queue.enqueue('a');
+    queue.enqueue('b');
+    queue.enqueue('c');
+    queue.enqueue('d');
+    println!("Queue count: {}", queue.count());
+    
+    if let Some(val) = queue.dequeue() {
+         println!("Dequeued char: {}", val);
+    }
+    println!("Queue count after dequeue: {}", queue.count());
 }
